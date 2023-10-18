@@ -1,6 +1,4 @@
-package citytech.global.platform;
-
-import citytech.global.resource.payload.EmailDetailsPayload;
+package citytech.global.platform.email;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -10,27 +8,27 @@ import java.util.Properties;
 public class EmailConfiguration {
     private EmailConfiguration(){}
 
-    public static void sendMail(EmailDetailsPayload emailDetailsPayload){
+    public static void sendMail(EmailDetails emailDetails){
         try{
-            MimeMessage mimeMessage = new MimeMessage(getSession());
-            mimeMessage.setFrom(emailDetailsPayload.getFrom());
-            mimeMessage.addRecipients(Message.RecipientType.TO, new InternetAddress[]{new InternetAddress(emailDetailsPayload.getTo())});
-            mimeMessage.setSubject(emailDetailsPayload.getSubject());
-            mimeMessage.setContent(emailDetailsPayload.getHtmlContent(),"text/html");
+            MimeMessage mimeMessage = new MimeMessage(getSession(emailDetails.from()));
+            mimeMessage.setFrom(emailDetails.from());
+            mimeMessage.addRecipients(Message.RecipientType.TO, new InternetAddress[]{new InternetAddress(emailDetails.to())});
+            mimeMessage.setSubject(emailDetails.subject());
+            mimeMessage.setContent(emailDetails.htmlContent(),"text/html");
             Transport.send(mimeMessage);
         } catch (Exception e) {
             e.printStackTrace();
             throw new IllegalArgumentException(e.getMessage());
         }
     }
-    private static Session getSession(){
+    private static Session getSession(String email){
 
         //Creating session
         Session session = Session.getInstance(getProperties(), new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
 
-                return new PasswordAuthentication("srijansil.bohara444.lhng@gmail.com","heal nghm chup qiwk");
+                return new PasswordAuthentication(email,"heal nghm chup qiwk");
             }
         });
         session.setDebug(true);

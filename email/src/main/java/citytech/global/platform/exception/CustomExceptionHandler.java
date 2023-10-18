@@ -18,7 +18,7 @@ public class CustomExceptionHandler implements ExceptionHandler<CustomResponseEx
         String code = exception.getCode();
         String message = exception.getMessage();
         String data = exception.getData();
-        String jsonResponse = String.format("{\"code\": %d, \"message\": \"%s\", \"data\": \"%s\"}", code, message, data);
+        String jsonResponse = String.format("{\"code\": %s, \"message\": \"%s\", \"data\": \"%s\"}", code, message, data);
         return HttpResponse.badRequest().body(jsonResponse);
     }
 }

@@ -59,7 +59,11 @@
       <version>5.5.0</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>2.2</version>
+    </dependency>
     <dependency>
       <groupId>io.micronaut.serde</groupId>
       <artifactId>micronaut-serde-jackson</artifactId>
@@ -131,6 +135,11 @@
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.32</version>
     </dependency>
   </dependencies>
   <build>

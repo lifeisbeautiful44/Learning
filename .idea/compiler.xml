@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Annotation profile for email" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <option name="micronaut.processing.group" value="citytech.global" />
+        <option name="micronaut.processing.module" value="email" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-inject-java/4.1.8/micronaut-inject-java-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core-processor/4.1.8/micronaut-core-processor-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-inject/4.1.7/micronaut-inject-4.1.7.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core/4.1.7/micronaut-core-4.1.7.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-aop/4.1.8/micronaut-aop-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm-tree/9.5/asm-tree-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm/9.5/asm-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm-commons/9.5/asm-commons-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-symbol-solver-core/3.25.5/javaparser-symbol-solver-core-3.25.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.25.5/javaparser-core-3.25.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core-reactive/4.1.8/micronaut-core-reactive-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-validation/4.1.8/micronaut-http-validation-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-server/4.1.8/micronaut-http-server-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http/4.1.8/micronaut-http-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-context/4.1.7/micronaut-context-4.1.7.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-context-propagation/4.1.8/micronaut-context-propagation-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.5.10/reactor-core-3.5.10.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-router/4.1.8/micronaut-router-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-websocket/4.1.8/micronaut-websocket-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-client-core/4.1.8/micronaut-http-client-core-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-json-core/4.1.7/micronaut-json-core-4.1.7.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-discovery-core/4.1.8/micronaut-discovery-core-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/serde/micronaut-serde-processor/2.2.5/micronaut-serde-processor-2.2.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/serde/micronaut-serde-api/2.2.5/micronaut-serde-api-2.2.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/data/micronaut-data-processor/4.1.3/micronaut-data-processor-4.1.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/data/micronaut-data-model/4.1.3/micronaut-data-model-4.1.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-processor/37/record-builder-processor-37.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/squareup/javapoet/1.12.1/javapoet-1.12.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-core/37/record-builder-core-37.jar" />
+        </processorPath>
+        <module name="email" />
+      </profile>
+      <profile name="Annotation profile for googlemap" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <option name="micronaut.processing.group" value="citytech.global" />
+        <option name="micronaut.processing.module" value="googlemap" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-inject-java/4.1.8/micronaut-inject-java-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core-processor/4.1.8/micronaut-core-processor-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-inject/4.1.7/micronaut-inject-4.1.7.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core/4.1.7/micronaut-core-4.1.7.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-aop/4.1.8/micronaut-aop-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm-tree/9.5/asm-tree-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm/9.5/asm-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm-commons/9.5/asm-commons-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-symbol-solver-core/3.25.5/javaparser-symbol-solver-core-3.25.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.25.5/javaparser-core-3.25.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core-reactive/4.1.8/micronaut-core-reactive-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-validation/4.1.8/micronaut-http-validation-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-server/4.1.8/micronaut-http-server-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http/4.1.8/micronaut-http-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-context/4.1.7/micronaut-context-4.1.7.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-context-propagation/4.1.8/micronaut-context-propagation-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.5.10/reactor-core-3.5.10.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-router/4.1.8/micronaut-router-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-websocket/4.1.8/micronaut-websocket-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-client-core/4.1.8/micronaut-http-client-core-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-json-core/4.1.7/micronaut-json-core-4.1.7.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-discovery-core/4.1.8/micronaut-discovery-core-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/serde/micronaut-serde-processor/2.2.5/micronaut-serde-processor-2.2.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/serde/micronaut-serde-api/2.2.5/micronaut-serde-api-2.2.5.jar" />
+        </processorPath>
+        <module name="googlemap" />
+      </profile>
+      <profile name="Annotation profile for moneyrequest" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <option name="micronaut.processing.group" value="citytech.global" />
+        <option name="micronaut.processing.module" value="moneyrequest" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-inject-java/4.1.8/micronaut-inject-java-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core-processor/4.1.8/micronaut-core-processor-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-inject/4.1.5/micronaut-inject-4.1.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core/4.1.5/micronaut-core-4.1.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-aop/4.1.8/micronaut-aop-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm-tree/9.5/asm-tree-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm/9.5/asm-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm-commons/9.5/asm-commons-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-symbol-solver-core/3.25.5/javaparser-symbol-solver-core-3.25.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.25.5/javaparser-core-3.25.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core-reactive/4.1.8/micronaut-core-reactive-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/data/micronaut-data-processor/4.1.3/micronaut-data-processor-4.1.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/data/micronaut-data-model/4.1.3/micronaut-data-model-4.1.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.5.9/reactor-core-3.5.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-graal/4.1.8/micronaut-graal-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-validation/4.1.8/micronaut-http-validation-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-server/4.1.8/micronaut-http-server-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http/4.1.8/micronaut-http-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-context/4.1.7/micronaut-context-4.1.7.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-context-propagation/4.1.8/micronaut-context-propagation-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-router/4.1.8/micronaut-router-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-websocket/4.1.8/micronaut-websocket-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-client-core/4.1.8/micronaut-http-client-core-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-json-core/4.1.7/micronaut-json-core-4.1.7.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-discovery-core/4.1.8/micronaut-discovery-core-4.1.8.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/serde/micronaut-serde-processor/2.2.5/micronaut-serde-processor-2.2.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/serde/micronaut-serde-api/2.2.5/micronaut-serde-api-2.2.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-processor/37/record-builder-processor-37.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/squareup/javapoet/1.12.1/javapoet-1.12.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-core/37/record-builder-core-37.jar" />
+        </processorPath>
+        <module name="moneyrequest" />
+      </profile>
+      <profile name="Annotation profile for websocket" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <option name="micronaut.processing.group" value="citytech.global" />
+        <option name="micronaut.processing.module" value="websocket" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-inject-java/4.1.9/micronaut-inject-java-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core-processor/4.1.9/micronaut-core-processor-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-inject/4.1.9/micronaut-inject-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core/4.1.9/micronaut-core-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-aop/4.1.9/micronaut-aop-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm-tree/9.5/asm-tree-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm/9.5/asm-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/ow2/asm/asm-commons/9.5/asm-commons-9.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-symbol-solver-core/3.25.5/javaparser-symbol-solver-core-3.25.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.25.5/javaparser-core-3.25.5.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-core-reactive/4.1.9/micronaut-core-reactive-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-validation/4.1.9/micronaut-http-validation-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-server/4.1.9/micronaut-http-server-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http/4.1.9/micronaut-http-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-context/4.1.9/micronaut-context-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-context-propagation/4.1.9/micronaut-context-propagation-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.5.10/reactor-core-3.5.10.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-router/4.1.9/micronaut-router-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-websocket/4.1.9/micronaut-websocket-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-http-client-core/4.1.9/micronaut-http-client-core-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-json-core/4.1.9/micronaut-json-core-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-discovery-core/4.1.9/micronaut-discovery-core-4.1.9.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/serde/micronaut-serde-processor/2.2.6/micronaut-serde-processor-2.2.6.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/serde/micronaut-serde-api/2.2.6/micronaut-serde-api-2.2.6.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/validation/micronaut-validation-processor/4.0.3/micronaut-validation-processor-4.0.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/validation/micronaut-validation/4.0.3/micronaut-validation-4.0.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/micronaut/reactor/micronaut-reactor/3.0.2/micronaut-reactor-3.0.2.jar" />
+        </processorPath>
+        <module name="websocket" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sapati-deu" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="email" options="-parameters -Amicronaut.processing.group=citytech.global -Amicronaut.processing.module=email" />
+      <module name="googlemap" options="-parameters -Amicronaut.processing.group=citytech.global -Amicronaut.processing.module=googlemap" />
+      <module name="moneyrequest" options="-parameters -Amicronaut.processing.group=citytech.global -Amicronaut.processing.module=moneyrequest" />
+      <module name="sapati-deu" options="-parameters -Amicronaut.processing.group=global.citytech -Amicronaut.processing.module=sapati-deu" />
+      <module name="websocket" options="-parameters -Amicronaut.processing.group=citytech.global -Amicronaut.processing.module=websocket" />
+    </option>
+  </component>
+</project>

@@ -1,8 +1,8 @@
 package citytech.global.resource;
 
 
-import citytech.global.resource.payload.MapDetailsPayload;
 import citytech.global.platform.restresponse.Response;
+import citytech.global.resource.payload.MapDetailsPayload;
 import citytech.global.usecase.LocationUseCase;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;

@@ -1,6 +1,8 @@
 package citytech.global.usecase.login;
 
-import citytech.global.platform.exception.CustomResponseException;
+import citytech.global.converter.UserConverter;
+import citytech.global.platform.exception.MoneyRequestException;
+import citytech.global.platform.exception.MoneyRequestExceptionType;
 import citytech.global.platform.security.SecurityUtils;
 import citytech.global.platform.usecase.UseCase;
 import citytech.global.repository.User;
@@ -9,7 +11,7 @@ import jakarta.inject.Inject;
 
 import java.util.Optional;
 
-public class LoginUseCase implements UseCase<LoginRequest,LoginResponse> {
+public class LoginUseCase implements UseCase<LoginRequest, LoginResponse> {
 
     private UserRepository userRepository;
 
@@ -21,18 +23,23 @@ public class LoginUseCase implements UseCase<LoginRequest,LoginResponse> {
     @Override
     public Optional<LoginResponse> execute(LoginRequest request) {
         Optional<User> user = userRepository.findByEmail(request.email());
-        if(user.isPresent()){
-            if(user.get().getPassword().equals(request.password())){
-                String token = generateToken(user.get().getEmail(),user.get().getUserType().toString(),user.get().getUserId());
-                return Optional.of(new LoginResponse("User Login Successful",token));
+        if (user.isPresent()) {
+            User userDetails = user.get();
+            if (userDetails.getPassword().equals(request.password())) {
+                String token = generateToken(userDetails.getEmail(), userDetails.getUserType().toString(), userDetails.getUserId());
+                LoginResponse loginResponse = UserConverter.toResponse(token);
+                return Optional.of(loginResponse);
+            } else {
+                throw new MoneyRequestException(MoneyRequestExceptionType.INVALID_CREDENTIAL);
             }
-            throw new CustomResponseException("0", "failed", "Invalid credential");
+        } else {
+            throw new MoneyRequestException(MoneyRequestExceptionType.USER_NOT_FOUND);
         }
-        throw new CustomResponseException("0", "failed", "Invalid credential");    }
+    }
 
-    private String generateToken(String email,String userType, long userId){
+    private String generateToken(String email, String userType, long userId) {
         SecurityUtils securityUtils = new SecurityUtils();
-        return securityUtils.token(email,userType,userId);
+        return securityUtils.token(email, userType, userId);
     }
 }
 

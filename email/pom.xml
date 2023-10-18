@@ -37,6 +37,22 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.micronaut.sql</groupId>
+      <artifactId>micronaut-jdbc-hikari</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.data</groupId>
+      <artifactId>micronaut-data-jdbc</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
       <groupId>io.micronaut.serde</groupId>
       <artifactId>micronaut-serde-jackson</artifactId>
       <scope>compile</scope>
@@ -45,6 +61,24 @@
       <groupId>com.sun.mail</groupId>
       <artifactId>javax.mail</artifactId>
       <version>1.6.2</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.32</version>
+    </dependency>
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.5.0</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
@@ -65,6 +99,16 @@
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>io.soabase.record-builder</groupId>
+      <artifactId>record-builder-core</artifactId>
+      <version>37</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -102,12 +146,31 @@
               <groupId>io.micronaut.serde</groupId>
               <artifactId>micronaut-serde-processor</artifactId>
               <version>${micronaut.serialization.version}</version>
+
+              <exclusions>
+
+                <exclusion>
+                  <groupId>io.micronaut</groupId>
+                  <artifactId>micronaut-inject</artifactId>
+                </exclusion>
+              </exclusions>
+            </path>
+            <path>
+              <groupId>io.micronaut.data</groupId>
+              <artifactId>micronaut-data-processor</artifactId>
+              <version>${micronaut.data.version}</version>
               <exclusions>
                 <exclusion>
                   <groupId>io.micronaut</groupId>
                   <artifactId>micronaut-inject</artifactId>
                 </exclusion>
               </exclusions>
+            </path>
+
+            <path>
+              <groupId>io.soabase.record-builder</groupId>
+              <artifactId>record-builder-processor</artifactId>
+              <version>37</version>
             </path>
           </annotationProcessorPaths>
           <compilerArgs>

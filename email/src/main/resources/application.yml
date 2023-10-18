@@ -1,0 +1,21 @@
+# Application Configuration
+micronaut:
+  application:
+    name: email
+# Server Port Configuration
+
+  server:
+    port: 8081
+
+# Default Datasource Configuration
+datasources:
+  default:
+    db-type: mysql
+    url: jdbc:mysql://localhost:3306/email_db
+    schema-generate: CREATE
+    username: root
+    password: mysql123
+    dialect: MYSQL
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+

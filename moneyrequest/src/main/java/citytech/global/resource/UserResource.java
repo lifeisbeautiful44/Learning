@@ -2,7 +2,8 @@ package citytech.global.resource;
 
 
 import citytech.global.converter.UserConverter;
-import citytech.global.platform.exception.CustomResponseException;
+import citytech.global.platform.exception.MoneyRequestException;
+import citytech.global.platform.exception.MoneyRequestExceptionType;
 import citytech.global.platform.restapiresponse.RestResponse;
 import citytech.global.resource.payload.CreateUserPayload;
 import citytech.global.resource.payload.LoginPayLoad;
@@ -25,12 +26,12 @@ import java.util.Optional;
 @Controller("/api/v1")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class UserResource  {
+public class UserResource {
 
-    private CreateUserUseCase createUserUseCase;
-    private LoginUseCase loginUseCase;
+    private final CreateUserUseCase createUserUseCase;
+    private final LoginUseCase loginUseCase;
 
-    private DownloadToCsvUseCase downloadToCsvUseCase;
+    private final DownloadToCsvUseCase downloadToCsvUseCase;
 
     @Inject
     public UserResource(CreateUserUseCase createUserUseCase, LoginUseCase loginUseCase, DownloadToCsvUseCase downloadToCsvUseCase) {
@@ -40,34 +41,35 @@ public class UserResource  {
     }
 
 
-
     @Post("/create/user")
-    public HttpResponse<RestResponse> createUser(@Body CreateUserPayload payload) throws IOException, URISyntaxException, InterruptedException {
+    public HttpResponse<RestResponse<CreateUserResponse>> createUser(@Body CreateUserPayload payload) throws IOException, URISyntaxException, InterruptedException {
 
         CreateUserRequest request = UserConverter.toRequest(payload);
-        try {
-            Optional<CreateUserResponse> createUserResponse = createUserUseCase.execute(request);
-                return HttpResponse.ok(RestResponse.success(createUserResponse.get()));
-        } catch (CustomResponseException e) {
-            return HttpResponse.badRequest(RestResponse.error(e.getCode(), e.getData()));
+
+        Optional<CreateUserResponse> response = createUserUseCase.execute(request);
+        if (response.isPresent()) {
+            return HttpResponse.ok(RestResponse.success(response.get().data()));
         }
 
+        throw new MoneyRequestException(MoneyRequestExceptionType.USER_NOT_FOUND);
+
     }
+
     @Post("/login")
-    public HttpResponse<RestResponse> loginUser(@Body LoginPayLoad payLoad) {
-        try {
-            LoginRequest loginRequest = UserConverter.toLoginRequest(payLoad);
-            Optional<LoginResponse> loginResponse = loginUseCase.execute(loginRequest);
-                return HttpResponse.ok(RestResponse.success(loginResponse.get()));
-        } catch (CustomResponseException e) {
-            return HttpResponse.badRequest(RestResponse.error(e.getCode(), e.getData()));
+    public HttpResponse<RestResponse<LoginResponse>> loginUser(@Body LoginPayLoad payLoad) {
+
+        LoginRequest loginRequest = UserConverter.toLoginRequest(payLoad);
+        Optional<LoginResponse> loginResponse = loginUseCase.execute(loginRequest);
+        if (loginResponse.isPresent()) {
+            return HttpResponse.ok(RestResponse.success(loginResponse.get()));
+        } else {
+            throw new MoneyRequestException(MoneyRequestExceptionType.INVALID_CREDENTIAL);
         }
     }
 
     @Get("/download")
-    public void downloadFile()
-    {
-         downloadToCsvUseCase.execute();
+    public void downloadFile() {
+        downloadToCsvUseCase.execute();
     }
 
 

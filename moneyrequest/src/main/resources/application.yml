@@ -1,0 +1,16 @@
+datasources:
+  default:
+    db-type: postgres
+    dialect: POSTGRES
+    schema-generate: CREATE.DROP
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sapatiapp
+    username: postgres
+    password: psql123
+
+micronaut:
+  application:
+    name: moneyrequest
+  views:
+    freemarker:
+      templateLoaderPath: classpath:/views

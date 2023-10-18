@@ -32,7 +32,6 @@ public class DownloadToCsvUseCase {
                     fileWriter.append(user.getUserId() + "," + user.getFirstName() + "," + user.getUserType() + "," + user.getEmail() + "\n");
                 }
 
-                System.out.println("CSV file generated: " + csvFileName);
             } catch (IOException e) {
                 e.printStackTrace();
             }

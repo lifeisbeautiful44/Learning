@@ -2,52 +2,39 @@ package citytech.global.platform.email;
 
 public class EmailHandler {
 
-    private final String from ="srijansil.bohara444.lhng@gmail.com";
-    private String to;
-    private String subject;
-    private String htmlContent;
+    private String userName;
+    private String password;
 
-    public EmailHandler(String to, String subject, String htmlContent) {
-        this.to = to;
-        this.subject = subject;
-        this.htmlContent = htmlContent;
+    public EmailHandler() {
     }
 
-    public String getFrom() {
-        return from;
+    public EmailHandler(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
     }
 
-    public String getTo() {
-        return to;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getHtmlContent() {
-        return htmlContent;
-    }
-
-    public void setHtmlContent(String htmlContent) {
-        this.htmlContent = htmlContent;
-    }
 
     @Override
     public String toString() {
         return "EmailHandler{" +
-                "from='" + from + '\'' +
-                ", to='" + to + '\'' +
-                ", subject='" + subject + '\'' +
-                ", htmlContent='" + htmlContent + '\'' +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

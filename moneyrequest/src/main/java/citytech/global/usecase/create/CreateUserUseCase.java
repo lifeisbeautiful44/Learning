@@ -2,9 +2,10 @@ package citytech.global.usecase.create;
 
 import citytech.global.converter.UserConverter;
 import citytech.global.platform.email.EmailHandler;
-import citytech.global.platform.exception.CustomResponseException;
-
+import citytech.global.platform.exception.MoneyRequestException;
+import citytech.global.platform.exception.MoneyRequestExceptionType;
 import citytech.global.platform.usecase.UseCase;
+import citytech.global.platform.utils.PasswordGenerator;
 import citytech.global.repository.User;
 import citytech.global.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,7 +18,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Optional;
-import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,65 +34,43 @@ public class CreateUserUseCase implements UseCase<CreateUserRequest, CreateUserR
 
         validateRequest(request);
         User entity = UserConverter.toEntity(request);
-        entity.setPassword(generateRandomPassword());
+        entity.setPassword(PasswordGenerator.generateRandomPassword());
         User userEntity = userRepository.save(entity);
         setEmailConfigurationForSignup(userEntity);
-        return Optional.of(new CreateUserResponse("200","Successfully","User has been successfully created"));
+        var response = UserConverter.toResponse();
+
+        return Optional.of(response);
     }
 
     private void validateRequest(CreateUserRequest request) {
-        Pattern emailPattern = Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9-.]*@gmail[.]com");
+        Pattern emailPattern = Pattern.compile(System.getenv("REGEX_PATTERN"));
         Matcher emailMatcher = emailPattern.matcher(request.email());
-        Boolean isValidEmail = emailMatcher.matches();
-        Optional<User> userEntity = this.userRepository.findByEmail(request.email());
-        if (isValidEmail.equals(false)) {
-            throw new CustomResponseException( "0", "failed", "Email must be start with one or more word characters, periods, plus signs, or dashes, followed by an \"@\" symbol, and ending with the specific characters \"gmail.com\".");
-
+        if (!emailMatcher.matches()) {
+            throw new MoneyRequestException(MoneyRequestExceptionType.INVALID_EMAIL_FORMAT);
         }
-        if (userEntity.isPresent()) {
-            throw new CustomResponseException("0", "failed", "Email address already taken!");
+        if (userRepository.findByEmail(request.email()).isPresent()) {
+            throw new MoneyRequestException(MoneyRequestExceptionType.EMAIL_ALREADY_EXIST);
         }
-    }
-
-
-    private String generateRandomPassword() {
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890@#";
-        int passwordLength = 8;
-        StringBuilder password = new StringBuilder();
-        Random random = new Random();
-        for (int i = 0; i < passwordLength; i++) {
-            int index = random.nextInt(characters.length());
-            password.append(characters.charAt(index));
-        }
-        return password.toString();
-    }
-
-    private void setEmailConfigurationForSignup(User userEntity) throws IOException, URISyntaxException, InterruptedException {
-        String subject = "Login Details";
-        String htmlContent = """
-                Thank you for signing up in easy money request.Here is your login details:
-                 """ +
-                " Your email " + userEntity.getEmail()
-                +
-                " Your password " + userEntity.getPassword();
-
-        EmailHandler sendEmail = new EmailHandler(userEntity.getEmail(), subject, htmlContent);
-        generateEmailRequest(sendEmail);
-
     }
 
     private void generateEmailRequest(EmailHandler emailHandler) throws IOException, URISyntaxException, InterruptedException {
         String json = new ObjectMapper().writeValueAsString(emailHandler);
-        HttpRequest httpRequest = HttpRequest.newBuilder()
+        //Using environment variable
+        String serviceHost = System.getenv("SERVICE_HOST");
 
-                .uri(new URI("http://172.16.16.229:8081/email/verification"))
+        HttpRequest httpRequest = HttpRequest.newBuilder()
+                .uri(new URI(serviceHost))
                 .header("Content-Type", "application/json") // Set the content type header
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
-
         HttpClient httpClient = HttpClient.newHttpClient();
-        HttpResponse<String> stringHttpResponse =  httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        System.out.println(stringHttpResponse.body());
+        httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
     }
+
+    private void setEmailConfigurationForSignup(User userEntity) throws IOException, URISyntaxException, InterruptedException {
+        EmailHandler sendEmail = new EmailHandler(userEntity.getEmail(), userEntity.getPassword());
+        generateEmailRequest(sendEmail);
+    }
+
 
 }
